@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE game SYSTEM "game.dtd">
+<!-- Game01: An Example Game. Comments about the authors, etc. -->
+
+<game title="THE TWO TOWELS" author="Jose Luis García Martínez">
+	Three Rings for the Elven-kings...
+		
+	<help>
+		Special Help: Advices and clues. 
+	</help>
+	
+	<location id="h1" name="Room 1">
+		First Room
+		<item id="it1" name="Item1" value="25" weight="4">
+			Item 1
+		</item>
+		<item id="it2" name="Item2" value="-25" weight="4">
+			Item 2
+		</item>
+		<item id="it3" name="Item3" value="25" weight="4">
+			Item 3
+		</item>
+		<item id="itN" name="ItemNegativo" value="25" weight="-4">
+			NegativeItem
+		</item>
+		<connection dir="e" target="h2">
+		</connection>
+		<connection dir="se" target="h4">
+		</connection>
+	</location>
+	
+	<location id="h2" name="Room 2">
+		Second Room
+		<connection dir="s" target="h4">
+		</connection>
+		<connection dir="e" target="h3">
+			<obstacle id="obs1" name="Obstaculo 1" active="true" errorMsg="You cannot pass, obstacle 1 is in this way">
+				Obstacle 1 Description
+			</obstacle>
+		</connection>
+		<connection dir="w" target="h1">
+		</connection>
+	</location>
+	
+	<location id="h3" name="Room 3">
+		Third Room
+		<connection dir="w" target="h2">
+		</connection>
+	</location>
+	
+	<location id="h4" name="Room 4">
+		Fourth Room
+		<connection dir="nw" target="h1">
+			<obstacle id="obs2" name="Obstaculo 2" active="true" errorMsg="You cannot pass, obstacle 2 is in this way">
+				Obstacle 2 Description
+				<item-ref id="it2"/>
+				<item-ref id="it3"/>
+				<obstacle-ref id="obs1"/>
+			</obstacle>
+		</connection>
+		<connection dir="n" target="h2">
+		</connection>
+		<connection dir="s" target="exit">
+		</connection>
+	</location>
+	
+	<location id="exit" name="Exit" threshold="10" exitMsg="You are leaving the game...">
+		Exit Room
+		<connection dir="n" target="h4">
+		</connection>
+	</location>
+</game>

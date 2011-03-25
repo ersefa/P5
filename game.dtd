@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT game (#PCDATA | location)*>
+<!ATTLIST game
+	title CDATA #REQUIRED 
+	author CDATA #REQUIRED >
+	
+<!ELEMENT location (#PCDATA | item | connection)*>
+<!ATTLIST location
+	id ID #REQUIRED
+	name CDATA #REQUIRED 
+	threshold CDATA #IMPLIED
+	exitMsg CDATA #IMPLIED >
+	
+<!ELEMENT item (#PCDATA)>
+<!ATTLIST item
+	id ID #REQUIRED
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+	weight CDATA #REQUIRED >
+	
+<!ELEMENT connection (obstacle*)>
+<!ATTLIST connection
+	dir (n|ne|e|se|s|sw|w|nw|u|d|i|o) #REQUIRED
+	target CDATA #REQUIRED >
+	
+<!ELEMENT obstacle (#PCDATA | item-ref | obstacle-ref)*>
+<!ATTLIST obstacle
+	id ID #REQUIRED
+	name CDATA #REQUIRED
+	status (true|false) #REQUIRED 
+	errorMsg CDATA #REQUIRED >
+
+<!ELEMENT item-ref EMPTY>
+<!ATTLIST item-ref
+	id IDREF #REQUIRED >
+
+<!ELEMENT obstacle-ref EMPTY>
+<!ATTLIST obstacle-ref
+	id IDREF #REQUIRED >
