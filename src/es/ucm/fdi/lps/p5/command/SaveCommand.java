@@ -80,6 +80,9 @@ public class SaveCommand extends Command {
 	private final String MESSAGE_SAVECOMMAND_FAILURE = "message.saveCommand.failure";
 	private String msgSaveCommandFailure;
 
+	/**
+	 * The path of the file where the contents will be saved
+	 */
 	private String filePath;
 
 	/**
